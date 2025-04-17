@@ -1,0 +1,25 @@
+
+{
+    "core":
+            {
+                "serviceName": "ExampleAAS"
+            },
+    "assetConnections": [
+        {
+            "@class": "org.eclipse.digitaltwin.fa3st.service.assetconnection.mqtt.MqttAssetConnection",
+            "subscriptionProviders":
+                    {
+                        "(Property)[ID_SHORT]Temperature":
+                                {
+                                    "topic": "some.mqtt.topic"
+                                }
+                    },
+            "host": "tcp://localhost",
+            "clientID": "FAST MQTT Client"
+        }
+    ],
+    "persistence":
+            {
+                "@class": "org.eclipse.digitaltwin.fa3st.service.persistence.Persistence"
+            }
+}

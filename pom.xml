@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.eclipse.digitaltwin.fa3st</groupId>
+        <artifactId>fa3st-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <groupId>org.eclipse.digitaltwin.fa3st.service</groupId>
+    <artifactId>fa3st-service</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>FA³ST Service</name>
+    <description>FA³ST Service</description>
+    <url>https://github.com/eclipse-fa3st/fa3st-service</url>
+    <inceptionYear>2025</inceptionYear>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>Michael Jacoby</name>
+            <email>michael.jacoby@iosb.fraunhofer.de</email>
+            <organization>Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V.</organization>
+            <organizationUrl>https://www.iosb.fraunhofer.de</organizationUrl>
+        </developer>
+    </developers>
+    <modules>
+        <module>core</module>
+        <module>endpoint-http</module>
+        <module>messagebus-internal</module>
+        <module>messagebus-mqtt</module>
+        <module>persistence-memory</module>
+        <module>persistence-file</module>
+        <module>persistence-mongo</module>
+        <module>filestorage-memory</module>
+        <module>filestorage-filesystem</module>
+        <module>assetconnection-common</module>
+        <module>assetconnection-mqtt</module>
+        <module>assetconnection-opcua</module>
+        <module>assetconnection-http</module>
+        <module>starter</module>
+        <module>integration-test</module>
+    </modules>
+    <scm>
+        <connection>scm:git:git://github.com/eclipse-fa3st/fa3st-service.git</connection>
+        <developerConnection>scm:git:ssh://github.com:eclipse-fa3st/fa3st-service.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://github.com/eclipse-fa3st/fa3st-service/tree/main</url>
+    </scm>
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/eclipse-fa3st/fa3st-service/issues</url>
+    </issueManagement>
+    <properties>
+        <root.basedir>${project.basedir}</root.basedir>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.eclipse.digitaltwin.fa3st</groupId>
+            <artifactId>fa3st-common</artifactId>
+        </dependency>
+    </dependencies>
+</project>

@@ -1,0 +1,43 @@
+
+{
+    "core":
+            {
+                "requestHandlerThreadPoolSize": 2,
+                "assetConnectionRetryInterval": 1000,
+                "validationOnLoad":
+                        {
+                            "validateConstraints": true,
+                            "idShortUniqueness": true,
+                            "identifierUniqueness": true
+                        },
+                "validationOnCreate":
+                        {
+                            "validateConstraints": false,
+                            "idShortUniqueness": true,
+                            "identifierUniqueness": true
+                        },
+                "validationOnUpdate":
+                        {
+                            "validateConstraints": false,
+                            "idShortUniqueness": true,
+                            "identifierUniqueness": true
+                        }
+            },
+    "assetConnections": [
+        {
+            "@class": "org.eclipse.digitaltwin.fa3st.service.config.fixtures.DummyAssetConnection",
+            "valueProviders":
+                    {
+                        "[ModelRef](Property)Temperature":
+                                {
+                                    "inputValidationMode": "REQUIRE_PRESENT_OR_DEFAULT",
+                                    "inoutputValidationMode": "REQUIRE_PRESENT_OR_DEFAULT",
+                                    "outputValidationMode": "REQUIRE_PRESENT_OR_DEFAULT",
+                                    "nodeId": "some.opc.ua.node.id"
+                                }
+                    },
+            "host": "tcp://localhost",
+            "port": 1234
+        }
+    ]
+}

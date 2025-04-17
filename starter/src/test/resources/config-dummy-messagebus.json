@@ -1,0 +1,9 @@
+{
+    "core":{
+        "assetConnectionRetryInterval":1000,
+        "requestHandlerThreadPoolSize":2
+    },
+    "messageBus":{
+        "@class":"org.eclipse.digitaltwin.fa3st.service.starter.fixtures.DummyMessageBus"
+    }
+}

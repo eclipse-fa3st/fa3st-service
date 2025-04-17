@@ -1,0 +1,6 @@
+{
+    "endpoints": [{
+            "@class": "org.eclipse.digitaltwin.fa3st.service.endpoint.http.HttpEndpoint",
+            "port": 443
+        }]
+}
