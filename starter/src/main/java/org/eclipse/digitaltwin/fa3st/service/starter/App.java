@@ -51,6 +51,7 @@ import org.eclipse.digitaltwin.aas4j.v3.model.impl.DefaultEnvironment;
 import org.eclipse.digitaltwin.fa3st.common.dataformat.EnvironmentSerializationManager;
 import org.eclipse.digitaltwin.fa3st.common.exception.InvalidConfigurationException;
 import org.eclipse.digitaltwin.fa3st.common.exception.ValidationException;
+import org.eclipse.digitaltwin.fa3st.common.logging.Fa3stFilter;
 import org.eclipse.digitaltwin.fa3st.common.model.serialization.DataFormat;
 import org.eclipse.digitaltwin.fa3st.common.model.validation.ModelValidator;
 import org.eclipse.digitaltwin.fa3st.common.model.validation.ModelValidatorConfig;
@@ -61,7 +62,6 @@ import org.eclipse.digitaltwin.fa3st.service.Service;
 import org.eclipse.digitaltwin.fa3st.service.config.ServiceConfig;
 import org.eclipse.digitaltwin.fa3st.service.endpoint.http.HttpEndpointConfig;
 import org.eclipse.digitaltwin.fa3st.service.starter.cli.LogLevelTypeConverter;
-import org.eclipse.digitaltwin.fa3st.service.starter.logging.FaaastFilter;
 import org.eclipse.digitaltwin.fa3st.service.starter.model.ConfigOverride;
 import org.eclipse.digitaltwin.fa3st.service.starter.model.ConfigOverrideSource;
 import org.eclipse.digitaltwin.fa3st.service.starter.model.EndpointType;
@@ -104,11 +104,11 @@ public class App implements Runnable {
     protected static final String ENV_PATH_SEPARATOR = ".";
     protected static final String ENV_PATH_ALTERNATIVE_SEPARATOR = "_";
     protected static final String JSON_PATH_SEPARATOR = ".";
-    protected static final String ENV_KEY_PREFIX = "faaast";
+    protected static final String ENV_KEY_PREFIX = "fa3st";
     protected static final String ENV_PATH_CONFIG_FILE = envPath(ENV_KEY_PREFIX, "config");
     protected static final String ENV_PATH_MODEL_FILE = envPath(ENV_KEY_PREFIX, "model");
     protected static final String ENV_PATH_LOGLEVEL_EXTERNAL = envPath(ENV_KEY_PREFIX, "loglevel_external");
-    protected static final String ENV_PATH_LOGLEVEL_FAAAAST = envPath(ENV_KEY_PREFIX, "loglevel_faaast");
+    protected static final String ENV_PATH_LOGLEVEL_FA3ST = envPath(ENV_KEY_PREFIX, "loglevel_fa3st");
     protected static final String ENV_PATH_NO_VALIDATION = envPath(ENV_KEY_PREFIX, "no_validation");
     protected static final String ENV_PREFIX_CONFIG_EXTENSION = envPath(ENV_KEY_PREFIX, "config", "extension", "");
     protected static final String ENV_PREFIX_CONFIG_EXTENSION_ALTERNATIVE = envPathWithAlternativeSeparator(ENV_PREFIX_CONFIG_EXTENSION);
@@ -148,8 +148,8 @@ public class App implements Runnable {
     @Option(names = COMMAND_NO_VALIDATION, negatable = false, description = "Disables validation, overrides validation configuration in core configuration.")
     public boolean noValidation = false;
 
-    @Option(names = "--loglevel-faaast", description = "Sets the log level for FA³ST packages. This overrides the log level defined by other commands such as -q or -v.")
-    public Level logLevelFaaast;
+    @Option(names = "--loglevel-fa3st", description = "Sets the log level for FA³ST packages. This overrides the log level defined by other commands such as -q or -v.")
+    public Level logLevelFa3st;
 
     @Option(names = "--loglevel-external", description = "Sets the log level for external packages. This overrides the log level defined by other commands such as -q or -v.")
     public Level logLevelExternal;
@@ -186,9 +186,9 @@ public class App implements Runnable {
     public static void main(String[] args) {
         args = new String[] {
                 "--model",
-                "C:\\tmp\\faaast\\aasx-with-files\\PenguinBotDPP_V3.1_fix.aasx",
+                "C:\\tmp\\fa3st\\aasx-with-files\\PenguinBotDPP_V3.1_fix.aasx",
                 "--config",
-                "C:\\tmp\\faaast\\aasx-with-files\\config.json",
+                "C:\\tmp\\fa3st\\aasx-with-files\\config.json",
         };
         Runtime.getRuntime().addShutdownHook(new Thread() {
             @Override
@@ -313,35 +313,35 @@ public class App implements Runnable {
 
     private void configureLogging() {
         if (veryVeryVerbose) {
-            FaaastFilter.setLevelFaaast(Level.TRACE);
-            FaaastFilter.setLevelExternal(Level.DEBUG);
+            Fa3stFilter.setLevelFa3st(Level.TRACE);
+            Fa3stFilter.setLevelExternal(Level.DEBUG);
         }
         else if (veryVerbose) {
-            FaaastFilter.setLevelFaaast(Level.DEBUG);
-            FaaastFilter.setLevelExternal(Level.INFO);
+            Fa3stFilter.setLevelFa3st(Level.DEBUG);
+            Fa3stFilter.setLevelExternal(Level.INFO);
         }
         else if (verbose) {
-            FaaastFilter.setLevelFaaast(Level.INFO);
-            FaaastFilter.setLevelExternal(Level.WARN);
+            Fa3stFilter.setLevelFa3st(Level.INFO);
+            Fa3stFilter.setLevelExternal(Level.WARN);
         }
         else if (quite) {
-            FaaastFilter.setLevelFaaast(Level.ERROR);
-            FaaastFilter.setLevelExternal(Level.ERROR);
+            Fa3stFilter.setLevelFa3st(Level.ERROR);
+            Fa3stFilter.setLevelExternal(Level.ERROR);
         }
-        if (logLevelFaaast != null) {
-            FaaastFilter.setLevelFaaast(logLevelFaaast);
+        if (logLevelFa3st != null) {
+            Fa3stFilter.setLevelFa3st(logLevelFa3st);
         }
-        if (getEnvValue(ENV_PATH_LOGLEVEL_FAAAAST) != null && !getEnvValue(ENV_PATH_LOGLEVEL_FAAAAST).isBlank()) {
-            FaaastFilter.setLevelFaaast(Level.toLevel(getEnvValue(ENV_PATH_LOGLEVEL_FAAAAST), FaaastFilter.getLevelFaaast()));
+        if (getEnvValue(ENV_PATH_LOGLEVEL_FA3ST) != null && !getEnvValue(ENV_PATH_LOGLEVEL_FA3ST).isBlank()) {
+            Fa3stFilter.setLevelFa3st(Level.toLevel(getEnvValue(ENV_PATH_LOGLEVEL_FA3ST), Fa3stFilter.getLevelFa3st()));
         }
         if (logLevelExternal != null) {
-            FaaastFilter.setLevelExternal(logLevelExternal);
+            Fa3stFilter.setLevelExternal(logLevelExternal);
         }
         if (getEnvValue(ENV_PATH_LOGLEVEL_EXTERNAL) != null && !getEnvValue(ENV_PATH_LOGLEVEL_EXTERNAL).isBlank()) {
-            FaaastFilter.setLevelExternal(Level.toLevel(getEnvValue(ENV_PATH_LOGLEVEL_EXTERNAL), FaaastFilter.getLevelExternal()));
+            Fa3stFilter.setLevelExternal(Level.toLevel(getEnvValue(ENV_PATH_LOGLEVEL_EXTERNAL), Fa3stFilter.getLevelExternal()));
         }
-        LOGGER.info("Using log level for FA³ST packages: {}", FaaastFilter.getLevelFaaast());
-        LOGGER.info("Using log level for external packages: {}", FaaastFilter.getLevelExternal());
+        LOGGER.info("Using log level for FA³ST packages: {}", Fa3stFilter.getLevelFa3st());
+        LOGGER.info("Using log level for external packages: {}", Fa3stFilter.getLevelExternal());
     }
 
 

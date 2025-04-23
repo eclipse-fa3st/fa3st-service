@@ -36,7 +36,7 @@ public class AbstractIntegrationTest {
     protected static final String HTTP_ENDPOINT_KEYSTORE_TYPE = "PKCS12";
     protected static final String HTTP_ENDPOINT_KEYSTORE_PASSWORD = "random-pw";
     protected static final CertificateInformation HTTP_ENDPOINT_KEYSTORE_CERTIFICATE_INFORMATION = CertificateInformation.builder()
-            .applicationUri("urn:de:fraunhofer:iosb:ilt:faaast:service:endpoint:http:integration-test")
+            .applicationUri("urn:org:eclipse:digitaltwin:fa3st:service:endpoint:http:integration-test")
             .commonName("FA³ST Service HTTP Endpoint - Integration Test")
             .countryCode("DE")
             .localityName("Karlsruhe")

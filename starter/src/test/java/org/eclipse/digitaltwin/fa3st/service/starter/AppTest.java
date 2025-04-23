@@ -65,7 +65,7 @@ public class AppTest {
 
     @Before
     public void prepareResources() throws IOException {
-        modelPath = Files.createTempFile("faaast-app-test-model", ".json");
+        modelPath = Files.createTempFile("fa3st-app-test-model", ".json");
         modelPath.toFile().deleteOnExit();
         InputStream modelResourceAsStream = AppTest.class.getResourceAsStream(MODEL_RESOURCE_PATH);
         Files.copy(modelResourceAsStream, modelPath, StandardCopyOption.REPLACE_EXISTING);
@@ -259,7 +259,7 @@ public class AppTest {
         ServiceConfig expected = ServiceConfigHelper.getDefaultServiceConfig();
         ((HttpEndpointConfig) expected.getEndpoints().get(0)).setPort(1234);
         ServiceConfig config = ServiceConfigHelper.getDefaultServiceConfig();
-        Map<String, String> env = Map.of("faaast.config.extension.endpoints[0].port", "1234");
+        Map<String, String> env = Map.of("fa3st.config.extension.endpoints[0].port", "1234");
         List<ConfigOverride> overrides = withEnv(env).execute(() -> {
             return application.getConfigOverrides(config);
         });
@@ -297,7 +297,7 @@ public class AppTest {
 
     @Test
     public void testConfigFileENV_DotSeparated() throws Exception {
-        File actual = withEnv("faaast.config", CONFIG)
+        File actual = withEnv("fa3st.config", CONFIG)
                 .execute(() -> {
                     executeAssertSuccess();
                     return application.configFile;
@@ -308,7 +308,7 @@ public class AppTest {
 
     @Test
     public void testConfigFileENV_UnderscoreSeparated() throws Exception {
-        File actual = withEnv("faaast_config", CONFIG)
+        File actual = withEnv("fa3st_config", CONFIG)
                 .execute(() -> {
                     executeAssertSuccess();
                     return application.configFile;
@@ -326,7 +326,7 @@ public class AppTest {
 
     @Test
     public void testModelFileENV_DotSeparated() throws Exception {
-        File actual = withEnv("faaast.model", modelPath.toString())
+        File actual = withEnv("fa3st.model", modelPath.toString())
                 .execute(() -> {
                     new CommandLine(application).execute();
                     return application.modelFile;
@@ -337,7 +337,7 @@ public class AppTest {
 
     @Test
     public void testModelFileENV_UnderscoreSeparated() throws Exception {
-        File actual = withEnv("faaast_model", modelPath.toString())
+        File actual = withEnv("fa3st_model", modelPath.toString())
                 .execute(() -> {
                     new CommandLine(application).execute();
                     return application.modelFile;

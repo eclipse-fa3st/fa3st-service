@@ -53,7 +53,7 @@ public class PersistenceFileTest extends AbstractPersistenceTest<PersistenceFile
 
     static {
         try {
-            tempDir = Files.createTempDirectory("faaast-temp");
+            tempDir = Files.createTempDirectory("fa3st-temp");
         }
         catch (IOException ex) {
             Assert.fail();
