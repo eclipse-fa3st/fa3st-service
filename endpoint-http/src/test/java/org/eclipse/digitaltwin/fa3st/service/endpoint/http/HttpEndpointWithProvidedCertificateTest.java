@@ -43,10 +43,9 @@ public class HttpEndpointWithProvidedCertificateTest extends AbstractHttpEndpoin
     private static final CertificateInformation SELFSIGNED_CERTIFICATE_INFORMATION = CertificateInformation.builder()
             .applicationUri("urn:org:eclipse:digitaltwin:fa3st:service:endpoint:http:test")
             .commonName("FA³ST Service HTTP Endpoint - Unit Test")
-            .countryCode("DE")
-            .localityName("Karlsruhe")
-            .organization("Fraunhofer IOSB")
-            .organizationUnit("ILT")
+            .countryCode("BE")
+            .localityName("Brussels")
+            .organization("Eclipse FA3ST")
             .build();
     private static final String KEYSTORE_PASSWORD = "password";
     private static File keyStoreTempFile;

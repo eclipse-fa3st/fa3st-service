@@ -26,10 +26,9 @@ public class OpcUaConstants {
     public static final String DNS_LOCALHOST = "localhost";
     public static final String CERTIFICATE_APPLICATION_URI = "urn:org.eclipse.digitaltwin.fa3st:service:assetconnection:opcua";
     public static final String CERTIFICATE_APPLICATION_NAME = "FA³ST Service OPC UA Asset Connection";
-    public static final String CERTIFICATE_ORGANIZATION = "Fraunhofer IOSB";
-    public static final String CERTIFICATE_ORGANIZATION_UNIT = "ILT";
-    public static final String CERTIFICATE_LOCALITY = "Karlsruhe";
-    public static final String CERTIFICATE_COUNTRYCODE = "DE";
+    public static final String CERTIFICATE_ORGANIZATION = "Eclipse FA3ST";
+    public static final String CERTIFICATE_LOCALITY = "Brussels";
+    public static final String CERTIFICATE_COUNTRYCODE = "BE";
 
     public static final CertificateInformation DEFAULT_APPLICATION_CERTIFICATE_INFO = CertificateInformation.builder()
             .applicationUri(CERTIFICATE_APPLICATION_URI)
@@ -37,7 +36,6 @@ public class OpcUaConstants {
             .countryCode(CERTIFICATE_COUNTRYCODE)
             .localityName(CERTIFICATE_LOCALITY)
             .organization(CERTIFICATE_ORGANIZATION)
-            .organizationUnit(CERTIFICATE_ORGANIZATION_UNIT)
             .ipAddress(IP_LOCALHOST)
             .dnsName(DNS_LOCALHOST)
             .build();
@@ -48,7 +46,6 @@ public class OpcUaConstants {
             .countryCode(CERTIFICATE_COUNTRYCODE)
             .localityName(CERTIFICATE_LOCALITY)
             .organization(CERTIFICATE_ORGANIZATION)
-            .organizationUnit(CERTIFICATE_ORGANIZATION_UNIT)
             .autodetectDnsAndIp()
             .build();
 

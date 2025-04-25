@@ -29,11 +29,12 @@ In-Memory Persistence has no additional configuration properties.
 :caption: Example configuration for In-Memory Persistence.
 :lineno-start: 1
 {
-	"persistence" : {
-		"@class" : "org.eclipse.digitaltwin.fa3st.service.persistence.memory.PersistenceInMemory",
-		"initialModel" : "{pathTo}/fa3st-service/misc/examples/model.json"
-	},
-	//...
+    "persistence":
+    {
+        "@class": "org.eclipse.digitaltwin.fa3st.service.persistence.memory.PersistenceInMemory",
+        "initialModel": "{pathTo}/fa3st-service/misc/examples/model.json"
+    },
+    //...
 }
 ```
 
@@ -61,14 +62,15 @@ Each modification of the model results in writing the whole model to the file wh
 :caption: Example configuration for File-based Persistence.
 :lineno-start: 1
 {
-	"persistence" : {
-		"@class" : "org.eclipse.digitaltwin.fa3st.service.persistence.file.PersistenceFile",
-		"initialModelFile" : "{pathTo}/fa3st-service/misc/examples/model.json",
-		"dataDir": ".",
-		"keepInitial": true,
-		"dataformat": "XML"
-	},
-	//...
+    "persistence":
+    {
+        "@class": "org.eclipse.digitaltwin.fa3st.service.persistence.file.PersistenceFile",
+        "initialModelFile": "{pathTo}/fa3st-service/misc/examples/model.json",
+        "dataDir": ".",
+        "keepInitial": true,
+        "dataformat": "XML"
+    },
+    //...
 }
 ```
 
@@ -97,12 +99,13 @@ Each modification of the model results in only writing the specific part to the 
 :caption: Example configuration for MongoDB-based Persistence.
 :lineno-start: 1
 {
-	"persistence" : {
-		"@class" : "org.eclipse.digitaltwin.fa3st.service.persistence.mongo.PersistenceMongo",
-		"connectionString" : "mongodb://localhost:27017",
-		"database": "fa3st-database",
-		"override": true
-	},
-	//...
+    "persistence":
+    {
+        "@class": "org.eclipse.digitaltwin.fa3st.service.persistence.mongo.PersistenceMongo",
+        "connectionString": "mongodb://localhost:27017",
+        "database": "fa3st-database",
+        "override": true
+    },
+    //...
 }
 ```

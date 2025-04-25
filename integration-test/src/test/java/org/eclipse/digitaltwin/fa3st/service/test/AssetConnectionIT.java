@@ -48,6 +48,7 @@ import org.eclipse.digitaltwin.fa3st.common.exception.UnsupportedModifierExcepti
 import org.eclipse.digitaltwin.fa3st.common.model.api.StatusCode;
 import org.eclipse.digitaltwin.fa3st.common.model.api.modifier.Content;
 import org.eclipse.digitaltwin.fa3st.common.model.api.paging.Page;
+import org.eclipse.digitaltwin.fa3st.common.model.http.HttpMethod;
 import org.eclipse.digitaltwin.fa3st.common.util.DeepCopyHelper;
 import org.eclipse.digitaltwin.fa3st.common.util.PortHelper;
 import org.eclipse.digitaltwin.fa3st.common.util.ReferenceBuilder;
@@ -58,7 +59,6 @@ import org.eclipse.digitaltwin.fa3st.service.assetconnection.opcua.util.OpcUaHel
 import org.eclipse.digitaltwin.fa3st.service.config.CoreConfig;
 import org.eclipse.digitaltwin.fa3st.service.config.ServiceConfig;
 import org.eclipse.digitaltwin.fa3st.service.endpoint.http.HttpEndpointConfig;
-import org.eclipse.digitaltwin.fa3st.service.endpoint.http.model.HttpMethod;
 import org.eclipse.digitaltwin.fa3st.service.filestorage.memory.FileStorageInMemoryConfig;
 import org.eclipse.digitaltwin.fa3st.service.messagebus.internal.MessageBusInternalConfig;
 import org.eclipse.digitaltwin.fa3st.service.persistence.memory.PersistenceInMemoryConfig;

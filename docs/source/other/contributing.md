@@ -2,21 +2,21 @@
 
 You want to help out improving Eclipse FA³ST? Great, welcome to the community! So that you can contribute, please read this document carefully as there are some things you need to know.
 
-# Terms of Use
+## Terms of Use
 
 Eclipse FA³ST repository is subject to the [Terms of Use of the Eclipse Foundation](https://www.eclipse.org/legal/termsofuse.php).
 
 
-# Eclipse Development Process
+## Eclipse Development Process
 As an open project of the Eclipse Foundation, Eclipse FA³ST is governed by the [Eclipse Foundation Development Process](https://www.eclipse.org/projects/dev_process/)
 
 
-# Eclipse Contributor Agreement (ECA)
+## Eclipse Contributor Agreement (ECA)
 To be able to contribute to any open source project of the Eclipse Foundation you must electronically sign the [Eclipse Contributor Agreement (ECA)](https://www.eclipse.org/legal/ECA.php).
 
 For more information, please see the [Eclipse Committer Handbook](https://www.eclipse.org/projects/handbook/#resources-commit)
 
-## Signing the ECA
+### Signing the ECA
 The following checklist is a short help for you to sign the [Eclipse Contributor Agreement (ECA)](https://www.eclipse.org/legal/ECA.php):
 1. In case you don't have one, [create an account at Eclipse Foundation](https://accounts.eclipse.org)
 2. Assign your GitHub user name in your Eclipse Foundation account settings
@@ -25,7 +25,7 @@ The following checklist is a short help for you to sign the [Eclipse Contributor
 Please, see [ECA FAQ](https://www.eclipse.org/legal/ecafaq.php) for more information.
 
 
-# Creating your Contribution
+## Creating your Contribution
 
 After you signed the ECA, you are ready to dig in:
 1. Fork the repository on GitHub.

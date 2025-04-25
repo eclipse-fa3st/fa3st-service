@@ -38,10 +38,9 @@ public class AbstractIntegrationTest {
     protected static final CertificateInformation HTTP_ENDPOINT_KEYSTORE_CERTIFICATE_INFORMATION = CertificateInformation.builder()
             .applicationUri("urn:org:eclipse:digitaltwin:fa3st:service:endpoint:http:integration-test")
             .commonName("FA³ST Service HTTP Endpoint - Integration Test")
-            .countryCode("DE")
-            .localityName("Karlsruhe")
-            .organization("Fraunhofer IOSB")
-            .organizationUnit("ILT")
+            .countryCode("BE")
+            .localityName("Brussels")
+            .organization("Eclipse FA3ST")
             .build();
 
     protected static File httpEndpointKeyStoreFile;

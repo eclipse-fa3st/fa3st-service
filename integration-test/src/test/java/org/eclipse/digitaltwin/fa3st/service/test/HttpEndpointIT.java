@@ -114,6 +114,7 @@ import org.eclipse.digitaltwin.fa3st.common.model.api.request.submodel.InvokeOpe
 import org.eclipse.digitaltwin.fa3st.common.model.api.request.submodel.InvokeOperationRequest;
 import org.eclipse.digitaltwin.fa3st.common.model.api.request.submodel.InvokeOperationSyncRequest;
 import org.eclipse.digitaltwin.fa3st.common.model.api.response.proprietary.ImportResult;
+import org.eclipse.digitaltwin.fa3st.common.model.http.HttpMethod;
 import org.eclipse.digitaltwin.fa3st.common.model.messagebus.EventMessage;
 import org.eclipse.digitaltwin.fa3st.common.model.messagebus.event.access.ElementReadEventMessage;
 import org.eclipse.digitaltwin.fa3st.common.model.messagebus.event.access.OperationFinishEventMessage;
@@ -143,7 +144,6 @@ import org.eclipse.digitaltwin.fa3st.service.config.CoreConfig;
 import org.eclipse.digitaltwin.fa3st.service.config.ServiceConfig;
 import org.eclipse.digitaltwin.fa3st.service.endpoint.Endpoint;
 import org.eclipse.digitaltwin.fa3st.service.endpoint.http.HttpEndpointConfig;
-import org.eclipse.digitaltwin.fa3st.service.endpoint.http.model.HttpMethod;
 import org.eclipse.digitaltwin.fa3st.service.endpoint.http.util.HttpConstants;
 import org.eclipse.digitaltwin.fa3st.service.filestorage.FileStorage;
 import org.eclipse.digitaltwin.fa3st.service.filestorage.memory.FileStorageInMemoryConfig;

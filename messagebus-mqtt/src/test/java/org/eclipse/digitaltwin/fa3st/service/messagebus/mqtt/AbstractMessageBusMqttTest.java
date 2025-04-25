@@ -205,19 +205,17 @@ public abstract class AbstractMessageBusMqttTest<T> {
     private static final CertificateInformation SERVER_CERTIFICATE_INFORMATION = CertificateInformation.builder()
             .applicationUri("urn:org:eclipse:digitaltwin:fa3st:service:messagebus:mqtt:test:server")
             .commonName("FA³ST Service MQTT MessageBus Unit Test - Server")
-            .countryCode("DE")
-            .localityName("Karlsruhe")
-            .organization("Fraunhofer IOSB")
-            .organizationUnit("ILT")
+            .countryCode("BE")
+            .localityName("Brussels")
+            .organization("Eclipse FA3ST")
             .build();
 
     private static final CertificateInformation CLIENT_CERTIFICATE_INFORMATION = CertificateInformation.builder()
             .applicationUri("urn:org:eclipse:digitaltwin:fa3st:service:messagebus:mqtt:test:client")
             .commonName("FA³ST Service MQTT MessageBus Unit Test - Client")
-            .countryCode("DE")
-            .localityName("Karlsruhe")
-            .organization("Fraunhofer IOSB")
-            .organizationUnit("ILT")
+            .countryCode("BE")
+            .localityName("Brussels")
+            .organization("Eclipse FA3ST")
             .build();
 
     protected static String serverKeyStorePath;

@@ -10,18 +10,18 @@ The following is an example of the relevant part of the configuration part compr
 :caption: Example configuration for running both an HTTP and OPC UA endpoint.
 :lineno-start: 1
 {
-	"endpoints": [
-		{
-			"@class": "de.fraunhofer.iosb.ilt.faaast.service.endpoint.http.HttpEndpoint",
-			"port": 443,
-			"corsEnabled": true
-		},
-		{
-			"@class": "de.fraunhofer.iosb.ilt.faaast.service.endpoint.opcua.OpcUaEndpoint",
-			"tcpPort": 8081
-		}
-	],
-	// ...
+    "endpoints": [
+        {
+            "@class": "org.eclipse.digitaltwin.fa3st.service.endpoint.http.HttpEndpoint",
+            "port": 443,
+            "corsEnabled": true
+        },
+        {
+            "@class": "de.fraunhofer.iosb.ilt.fa3st.service.endpoint.opcua.OpcUaEndpoint",
+            "tcpPort": 8081
+        }
+    ],
+    // ...
 }
 ```
 
@@ -30,9 +30,9 @@ The following is an example of the relevant part of the configuration part compr
 All endpoint implementations share the following common configuration properties.
 
 :::{table} Configuration properties of all Endpoint implementations.
-| Name                                 | Allowed Value                                                                                                                                                                                                                                                                                               | Description                                                | Default Value                               |
-| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------- |
-| profiles<br>*(optional)*             | List, allowed values:<br>AAS_FULL<br>AAS_READ<br>AAS_REPOSITORY_FULL<br>AAS_REPOSITORY_READ<br>AASX_FILE_SERVER_FULL<br>CONCEPT_DESCRIPTION_FULL<br>DISCOVERY_FULL<br>FAAAST_IMPORT<br>FAAAST_RESET<br>SUBMODEL_FULL<br>SUBMODEL_READ<br>SUBMODEL_VALUE<br>SUBMODEL_REPOSITORY_FULL<br>SUBMODEL_REPOSITORY_READ | The AAS Service Profiles that the endpoint should support. | (empty, meaning all profiles are supported) |
+| Name                                 | Allowed Value                                                                                                                                                                                                                                                                                                 | Description                                                | Default Value                               |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------- |
+| profiles<br>*(optional)*             | List, allowed values:<br>AAS_FULL<br>AAS_READ<br>AAS_REPOSITORY_FULL<br>AAS_REPOSITORY_READ<br>AASX_FILE_SERVER_FULL<br>CONCEPT_DESCRIPTION_FULL<br>DISCOVERY_FULL<br>FA3ST_IMPORT<br>FA3ST_RESET<br>SUBMODEL_FULL<br>SUBMODEL_READ<br>SUBMODEL_VALUE<br>SUBMODEL_REPOSITORY_FULL<br>SUBMODEL_REPOSITORY_READ | The AAS Service Profiles that the endpoint should support. | (empty, meaning all profiles are supported) |
 :::
 
 (endpoint-http)=
@@ -67,30 +67,33 @@ The HTTP Endpoint is based on the document [Details of the Asset Administration 
 :caption: Example configuration section for HTTP Endpoint.
 :lineno-start: 1
 {
-	"endpoints": [ {
-		"@class": "de.fraunhofer.iosb.ilt.faaast.service.endpoint.http.HttpEndpoint",
-		"certificate": {
-			"keyStoreType": "PKCS12",
-			"keyStorePath": "C:\faaast\MyKeyStore.p12",
-			"keyStorePassword": "changeit",
-			"keyAlias": "server-key",
-			"keyPassword": "changeit"
-		},
-		"corsAllowCredentials": false,
-		"corsAllowedHeaders": "X-Custom-Header",
-		"corsAllowedMethods": "GET, PUT, POST, PATCH, DELETE, HEAD",
-		"corsAllowedOrigin": "localhost",
-		"corsEnabled": true,
-		"corsExposedHeaders": "X-Custom-Header",
-		"corsMaxAge": 1000,
-		"hostname": "localhost",
-		"includeErrorDetails": true,
-		"port": 443,
-		"profiles": [ "AAS_REPOSITORY_FULL", "AAS_FULL", "SUBMODEL_REPOSITORY_FULL", "SUBMODEL_FULL" ],
-		"sniEnabled": true,
-		"sslEnabled": true
-	} ],
-	// ...
+    "endpoints": [
+        {
+            "@class": "org.eclipse.digitaltwin.fa3st.service.endpoint.http.HttpEndpoint",
+            "certificate":
+            {
+                "keyStoreType": "PKCS12",
+                "keyStorePath": "C:\fa3st\MyKeyStore.p12",
+                "keyStorePassword": "changeit",
+                "keyAlias": "server-key",
+                "keyPassword": "changeit"
+            },
+            "corsAllowCredentials": false,
+            "corsAllowedHeaders": "X-Custom-Header",
+            "corsAllowedMethods": "GET, PUT, POST, PATCH, DELETE, HEAD",
+            "corsAllowedOrigin": "localhost",
+            "corsEnabled": true,
+            "corsExposedHeaders": "X-Custom-Header",
+            "corsMaxAge": 1000,
+            "hostname": "localhost",
+            "includeErrorDetails": true,
+            "port": 443,
+            "profiles": ["AAS_REPOSITORY_FULL", "AAS_FULL", "SUBMODEL_REPOSITORY_FULL", "SUBMODEL_FULL"],
+            "sniEnabled": true,
+            "sslEnabled": true
+        }
+    ],
+    // ...
 }
 ```
 
@@ -142,25 +145,31 @@ Depending on the in & inoutput arguments, the payload should look like this.
 :caption: Example payload for invoking operations synchronously
 :lineno-start: 1
 {
-	"inputArguments": [ {
-		"value": {
-			"modelType": "Property",
-			"value": "4",
-			"valueType": "xs:int",
-			"idShort": "in"
-		},
-		// additional input arguments
-	} ],
-	"inoutputArguments": [ {
-		"value": {
-			"modelType": "Property",
-			"value": "original value",
-			"valueType": "xs:string",
-			"idShort": "note"
-		},
-		// additional inoutput arguments
-	} ],
-	"clientTimeoutDuration": "PT10S"   // ISO8601 duration, here: 10 seconds
+    "inputArguments": [
+        {
+            "value":
+            {
+                "modelType": "Property",
+                "value": "4",
+                "valueType": "xs:int",
+                "idShort": "in"
+            },
+            // additional input arguments
+        }
+    ],
+    "inoutputArguments": [
+        {
+            "value":
+            {
+                "modelType": "Property",
+                "value": "original value",
+                "valueType": "xs:string",
+                "idShort": "note"
+            },
+            // additional inoutput arguments
+        }
+    ],
+    "clientTimeoutDuration": "PT10S" // ISO8601 duration, here: 10 seconds
 }
 ```
 
@@ -172,13 +181,15 @@ The payload will be simplified and look similar to this
 :caption: Example payload for invoking operations with ValueOnly
 :lineno-start: 1
 {
-	"inputArguments": {
-		"in": 4
-	},
-	"inoutputArguments": {
-		"note": "original value"
-	},
-	"clientTimeoutDuration": "PT10S"
+    "inputArguments":
+    {
+        "in": 4
+    },
+    "inoutputArguments":
+    {
+        "note": "original value"
+    },
+    "clientTimeoutDuration": "PT10S"
 }
 ```
 
@@ -222,7 +233,7 @@ The path provided with the `serverCertificateBasePath` configuration property st
 - `/private`: certificates for the OPC UA server
 - `/rejected`: unkown/rejected client certificates
 
-To provision the OPC UA Endpoint to use an existing certificate for the server, save the certificate file as `{serverCertificateBasePath}/private/Fraunhofer IOSB AAS OPC UA Server@{hostname}_2048.der` and the private key as `{serverCertificateBasePath}/private/Fraunhofer IOSB AAS OPC UA Server@{hostname}_2048.pem` where `{hostname}` is the host name of your machine.
+To provision the OPC UA Endpoint to use an existing certificate for the server, save the certificate file as `{serverCertificateBasePath}/private/FA3ST Service Endpoint OPC UA@{hostname}_2048.der` and the private key as `{serverCertificateBasePath}/private/FA3ST Service Endpoint OPC UA@{hostname}_2048.pem` where `{hostname}` is the host name of your machine.
 
 When an unkown client connects to the OPC UA Endpoint, the connection will be rejected and its client certificate will be stored in `/rejected`.
 To trust the certificate of a client and allow the connection, move the file to `/certs`.
@@ -246,23 +257,25 @@ These directories contain the following subdirectories:
 ```{code-block} json
 :caption: Example configuration for OPC UA Endpoint.
 :lineno-start: 1
-
 {
-	"endpoints": [ {
-			"@class": "de.fraunhofer.iosb.ilt.faaast.service.endpoint.opcua.OpcUaEndpoint",			
-			"discoveryServerUrl" : "opc.tcp://localhost:4840",
-			"profiles": [ "AAS_REPOSITORY_FULL", "AAS_FULL", "SUBMODEL_REPOSITORY_FULL", "SUBMODEL_FULL" ],
-			"userMap" : {
-			  "user1" : "secret"
-			},
-			"secondsTillShutdown" : 5,
-			"serverCertificateBasePath" : "PKI/CA",
-			"supportedSecurityPolicies" : [ "NONE", "BASIC256SHA256", "AES128_SHA256_RSAOAEP" ],
-			"supportedAuthentications" : [ "Anonymous", "UserName" ]
-			"tcpPort" : 18123,
-			"userCertificateBasePath" : "USERS_PKI/CA",			
-	} ],
-	//...
+    "endpoints": [
+        {
+            "@class": "de.fraunhofer.iosb.ilt.fa3st.service.endpoint.opcua.OpcUaEndpoint",
+            "discoveryServerUrl": "opc.tcp://localhost:4840",
+            "profiles": ["AAS_REPOSITORY_FULL", "AAS_FULL", "SUBMODEL_REPOSITORY_FULL", "SUBMODEL_FULL"],
+            "userMap":
+            {
+                "user1": "secret"
+            },
+            "secondsTillShutdown": 5,
+            "serverCertificateBasePath": "PKI/CA",
+            "supportedSecurityPolicies": ["NONE", "BASIC256SHA256", "AES128_SHA256_RSAOAEP"],
+            "supportedAuthentications": ["Anonymous", "UserName"]
+            "tcpPort": 18123,
+            "userCertificateBasePath": "USERS_PKI/CA",
+        }
+    ],
+    //...
 }
 ```
 

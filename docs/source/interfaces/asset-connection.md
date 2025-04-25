@@ -25,33 +25,36 @@ Therefore, the configuration section for all implementations of the AssetConnect
 ```{code-block} json
 :caption: Common configuration structure for all AssetConnection implementations.
 :lineno-start: 1
+
 {
-	"assetConnections": [ {
-		"@class": "...",
-		// connection-level configuration
-		"valueProviders":
-		{
-			"{serialized Reference of AAS element}":
-			{
-				// value provider configuration
-			}
-		},
-		"operationProviders":
-		{
-			"{serialized Reference of AAS element}":
-			{
-				// operation provider configuration
-			}
-		},
-		"subscriptionProviders":
-		{
-			"{serialized Reference of AAS element}":
-			{
-				// subscription provider configuration
-			}
-		}
-	}],
-	//...
+    "assetConnections": [
+        {
+            "@class": "...",
+            // connection-level configuration
+            "valueProviders":
+            {
+                "{serialized Reference of AAS element}":
+                {
+                    // value provider configuration
+                }
+            },
+            "operationProviders":
+            {
+                "{serialized Reference of AAS element}":
+                {
+                    // operation provider configuration
+                }
+            },
+            "subscriptionProviders":
+            {
+                "{serialized Reference of AAS element}":
+                {
+                    // subscription provider configuration
+                }
+            }
+        }
+    ],
+    //...
 }
 ```
 
@@ -128,14 +131,15 @@ Validation of operation argument can be configured independently for in-, out-, 
 :caption: Example configuration section for HTTP AssetConnection.
 :lineno-start: 1
 {
-	"format": "JSON",
-	"path": "/foo",
-	"headers": {
-		"foo": "bar"
-	},
-	"query": "$.foo",
-	"template": "{\"foo\" : \"${value}\"}",
-	"writeMethod": "POST"
+    "format": "JSON",
+    "path": "/foo",
+    "headers":
+    {
+        "foo": "bar"
+    },
+    "query": "$.foo",
+    "template": "{\"foo\" : \"${value}\"}",
+    "writeMethod": "POST"
 }
 ```
 
@@ -161,17 +165,19 @@ Validation of operation argument can be configured independently for in-, out-, 
 :caption: Example configuration section for HTTP OperationProvider for an Operation with input parameters `in1` and `in2` and output parameters `out1` and `out2`.
 :lineno-start: 1
 {
-	"format": "JSON",
-	"path": "/foo/execute",
-	"headers": {
-		"foo": "bar"
-	},
-	"method": "POST",	
-	"template": "{\"input1\" : \"${in1}\", \"input2\" : \"${in2}\"}",
-	"queries": {
-		"out1": "$.output1",
-		"out2": "$.output2"
-	}
+    "format": "JSON",
+    "path": "/foo/execute",
+    "headers":
+    {
+        "foo": "bar"
+    },
+    "method": "POST",
+    "template": "{\"input1\" : \"${in1}\", \"input2\" : \"${in2}\"}",
+    "queries":
+    {
+        "out1": "$.output1",
+        "out2": "$.output2"
+    }
 }
 ```
 
@@ -192,13 +198,14 @@ Validation of operation argument can be configured independently for in-, out-, 
 :caption: Example configuration section for HTTP SubscriptionProvider.
 :lineno-start: 1
 {
-	"path": "/foo",
-	"headers": {
-		"foo": "bar"
-	},
-	"interval": "500",
-	"method": "GET",
-	"template": "{\"foo\" : \"bar\"}"
+    "path": "/foo",
+    "headers":
+    {
+        "foo": "bar"
+    },
+    "interval": "500",
+    "method": "GET",
+    "template": "{\"foo\" : \"bar\"}"
 }
 ```
 
@@ -239,9 +246,9 @@ Validation of operation argument can be configured independently for in-, out-, 
 :caption: Example configuration section for MQTT ValueProvider.
 :lineno-start: 1
 {
-	"format": "JSON",
-	"topic": "example/myTopic",
-	"template": "{\"foo\" : \"${value}\"}"
+    "format": "JSON",
+    "topic": "example/myTopic",
+    "template": "{\"foo\" : \"${value}\"}"
 }
 ```
 
@@ -259,9 +266,9 @@ Validation of operation argument can be configured independently for in-, out-, 
 :caption: Example configuration section for MQTT SubscriptionProvider.
 :lineno-start: 1
 {
-	"format": "JSON",
-	"topic": "example/myTopic",
-	"query": "$.foo"
+    "format": "JSON",
+    "topic": "example/myTopic",
+    "query": "$.foo"
 }
 ```
 
@@ -346,8 +353,8 @@ Which authentication certificate is used is determined by a similar logic as for
 :caption: Example configuration section for OPC UA ValueProvider.
 :lineno-start: 1
 {
-	"nodeId": "nsu=com:example;s=foo",
-	"arrayIndex" : "[2]"
+    "nodeId": "nsu=com:example;s=foo",
+    "arrayIndex": "[2]"
 }
 ```
 
@@ -372,16 +379,20 @@ Which authentication certificate is used is determined by a similar logic as for
 :caption: Example configuration section for OPC UA Operation Provider.
 :lineno-start: 1
 {
-	"nodeId": "nsu=com:example;s=foo",
-	"parentNodeId": "nsu=com:example;s=fooObject",
-	"inputArgumentMapping": [ {
-		"idShort": "ExampleInputId",
-		"argumentName": "ExampleInput"
-	} ],
-	"outputArgumentMapping": [ {
-		"idShort": "ExampleOutputId",
-		"argumentName": "ExampleOutput"
-	} ]
+    "nodeId": "nsu=com:example;s=foo",
+    "parentNodeId": "nsu=com:example;s=fooObject",
+    "inputArgumentMapping": [
+        {
+            "idShort": "ExampleInputId",
+            "argumentName": "ExampleInput"
+        }
+    ],
+    "outputArgumentMapping": [
+        {
+            "idShort": "ExampleOutputId",
+            "argumentName": "ExampleOutput"
+        }
+    ]
 }
 ```
 
@@ -399,9 +410,9 @@ Which authentication certificate is used is determined by a similar logic as for
 :caption: Example configuration section for OPC UA Subscription Provider.
 :lineno-start: 1
 {
-	"nodeId": "nsu=com:example;s=foo",
-	"interval": 1000,
-	"arrayIndex" : "[2]"
+    "nodeId": "nsu=com:example;s=foo",
+    "interval": 1000,
+    "arrayIndex": "[2]"
 }
 ```
 
@@ -411,43 +422,52 @@ Which authentication certificate is used is determined by a similar logic as for
 :caption: Complete example configuration section for OPC UA Asset Connection.
 :lineno-start: 1
 {
-	"@class": "org.eclipse.digitaltwin.fa3st.service.assetconnection.opcua.OpcUaAssetConnection",
-	"host": "opc.tcp://localhost:4840",
-	"securityPolicy": "None",
-	"securityMode" : "None",
-	"applicationCertificate": {
-		"keyStoreType": "PKCS12",
-		"keyStorePath": "C:\fa3st\MyKeyStore.p12",
-		"keyStorePassword": "changeit",
-		"keyAlias": "app-cert",
-		"keyPassword": "changeit"
-	},
-	"authenticationCertificate": {
-		"keyStoreType": "PKCS12",
-		"keyStorePath": "C:\fa3st\MyKeyStore.p12",
-		"keyStorePassword": "changeit",
-		"keyAlias": "auth-cert",
-		"keyPassword": "changeit"
-	},
-	"valueProviders": {
-		"[ModelRef](Submodel)urn:aas:id:example:submodel:1, (Property)Property1": {
-			"nodeId": "some.node.id.property.1"
-		},
-		"[ModelRef](Submodel)urn:aas:id:example:submodel:1, (Property)Property2": {
-			"nodeId": "some.node.id.property.2"
-		}
-	},
-	"operationProviders": {
-		"[ModelRef](Submodel)urn:aas:id:example:submodel:1, (Operation)Operation1": {
-			"nodeId": "some.node.id.operation.1"
-		}
-	},
-	"subscriptionProviders": {
-		"[ModelRef](Submodel)urn:aas:id:example:submodel:1, (Property)Property3": {
-			"nodeId": "some.node.id.property.3",
-			"interval": 1000
-		}
-	}
+    "@class": "org.eclipse.digitaltwin.fa3st.service.assetconnection.opcua.OpcUaAssetConnection",
+    "host": "opc.tcp://localhost:4840",
+    "securityPolicy": "None",
+    "securityMode": "None",
+    "applicationCertificate":
+    {
+        "keyStoreType": "PKCS12",
+        "keyStorePath": "C:\fa3st\MyKeyStore.p12",
+        "keyStorePassword": "changeit",
+        "keyAlias": "app-cert",
+        "keyPassword": "changeit"
+    },
+    "authenticationCertificate":
+    {
+        "keyStoreType": "PKCS12",
+        "keyStorePath": "C:\fa3st\MyKeyStore.p12",
+        "keyStorePassword": "changeit",
+        "keyAlias": "auth-cert",
+        "keyPassword": "changeit"
+    },
+    "valueProviders":
+    {
+        "[ModelRef](Submodel)urn:aas:id:example:submodel:1, (Property)Property1":
+        {
+            "nodeId": "some.node.id.property.1"
+        },
+        "[ModelRef](Submodel)urn:aas:id:example:submodel:1, (Property)Property2":
+        {
+            "nodeId": "some.node.id.property.2"
+        }
+    },
+    "operationProviders":
+    {
+        "[ModelRef](Submodel)urn:aas:id:example:submodel:1, (Operation)Operation1":
+        {
+            "nodeId": "some.node.id.operation.1"
+        }
+    },
+    "subscriptionProviders":
+    {
+        "[ModelRef](Submodel)urn:aas:id:example:submodel:1, (Property)Property3":
+        {
+            "nodeId": "some.node.id.property.3",
+            "interval": 1000
+        }
+    }
 }
 ```
 
@@ -479,11 +499,11 @@ Service service = new Service(...);
 Reference referenceToAASElement = ...;
 
 service.getAssetConnectionManager().registerLambdaValueProvider(
-		referenceToAASElement,
-		LambdaValueProvider.builder()
-				.read(() -> new PropertyValue(new StringValue("example value")))
-				.write(x -> System.out.println("new value: " + x))
-				.build());
+    referenceToAASElement,
+    LambdaValueProvider.builder()
+        .read(() -> new PropertyValue(new StringValue("example value")))
+        .write(x -> System.out.println("new value: " + x))
+        .build());
 service.start();
 ```
 
@@ -500,14 +520,14 @@ Reference referenceToAASElement = ...;
 ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
 
 service.getAssetConnectionManager().registerLambdaSubscriptionProvider(
-		referenceToAASElement,
-		LambdaSubscriptionProvider.builder()
-				.generate(listener -> scheduler.scheduleAtFixedRate(
-						() -> listener.newDataReceived( // periodically call listener.newDataReceived to notify FA³ST about new data
-								new PropertyValue(
-										new StringValue(ZonedDateTime.now().toString()))),
-						0, 10, TimeUnit.SECONDS))
-				.build());
+    referenceToAASElement,
+    LambdaSubscriptionProvider.builder()
+        .generate(listener -> scheduler.scheduleAtFixedRate(
+            () -> listener.newDataReceived( // periodically call listener.newDataReceived to notify FA³ST about new data
+                new PropertyValue(
+                    new StringValue(ZonedDateTime.now().toString()))),
+            0, 10, TimeUnit.SECONDS))
+        .build());
 service.start();
 ```
 
@@ -522,12 +542,12 @@ Service service = new Service(...);
 Reference referenceToAASElement = ...;
 
 service.getAssetConnectionManager().registerLambdaOperationProvider(
-		referenceToAASElement,
-		LambdaOperationProvider.builder()
-				.handle((input, inoutput) -> {
-					// add operation logic here
-					return new OperationVariable[]{};
-				})
-				.build());
+    referenceToAASElement,
+    LambdaOperationProvider.builder()
+        .handle((input, inoutput) -> {
+            // add operation logic here
+            return new OperationVariable[]{};
+        })
+        .build());
 service.start();
 ```

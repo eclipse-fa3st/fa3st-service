@@ -24,14 +24,14 @@ Starting FA³ST with the `--no-validation` flag loads the file in any case but w
 :::{table} Supported CLI arguments and environment variables.
 | CLI (short)   | CLI (long)            | Environment variable                                           | Allowed<br>Values                       | Description                                                                                                                                              | Default<br>Value |
 | ------------- | --------------------- | -------------------------------------------------------------- | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| `-c`          | `--config`            | faaast_config                                                  | <file path>                             | The config file to use.                                                                                                                                  | config.json      |
+| `-c`          | `--config`            | fa3st_config                                                   | <file path>                             | The config file to use.                                                                                                                                  | config.json      |
 | `-e`          | `--empty-model`       |                                                                |                                         | Starts the FAST service with an empty Asset Administration Shell Environment.                                                                            |                  |
 |               | `--endpoint`          |                                                                | HTTP<br>OPCUA                           | Additional endpoints that should be started.                                                                                                             |                  |
 | `-h`          | `--help`              |                                                                |                                         | Print help message and exit.                                                                                                                             |                  | 
-|               | `--loglevel-external` | faaast_loglevel_external                                       | TRACE<br>DEBUG<br>INFO<br>WARN<br>ERROR | Sets the log level for external packages.<br>This overrides the log level defined by other commands such as *-q* or *-v*.                                | WARN             |
-|               | `--loglevel-fa3st`    | faaast_loglevel_fa3st                                          | TRACE<br>DEBUG<br>INFO<br>WARN<br>ERROR | Sets the log level for FA³ST packages.<br>This overrides the log level defined by other commands such as *-q* or *-v*.                                   | WARN             |
+|               | `--loglevel-external` | fa3st_loglevel_external                                        | TRACE<br>DEBUG<br>INFO<br>WARN<br>ERROR | Sets the log level for external packages.<br>This overrides the log level defined by other commands such as *-q* or *-v*.                                | WARN             |
+|               | `--loglevel-fa3st`    | fa3st_loglevel_fa3st                                           | TRACE<br>DEBUG<br>INFO<br>WARN<br>ERROR | Sets the log level for FA³ST packages.<br>This overrides the log level defined by other commands such as *-q* or *-v*.                                   | WARN             |
 | `-m`          | `--model`             |                                                                | <file path>                             | The model file to load.                                                                                                                                  | model.*          |
-|               | `--no-validation`     | faaast_no_validation                                           |                                         | Disables all validation, overrides validation defined in the configuration Environment.                                                                  |                  |
+|               | `--no-validation`     | fa3st_no_validation                                            |                                         | Disables all validation, overrides validation defined in the configuration Environment.                                                                  |                  |
 | `-q`          | `--quite`             |                                                                |                                         | Reduces log output (*ERROR* for FAST packages, *ERROR* for all other packages).<br>Default information about the starting process will still be printed. |                  |
 | `-v`          | `--verbose`           |                                                                |                                         | Enables verbose logging (*INFO* for FAST packages, *WARN* for all other packages).                                                                       |                  |
 | `-V`          | `--version`           |                                                                |                                         | Print version information and exit.                                                                                                                      |                  |
@@ -50,15 +50,15 @@ The following code snippet shows how to create and run a new FA³ST Service from
 :caption: Create a FA³ST Service from code.
 :lineno-start: 1
 Service service = new Service(ServiceConfig.builder()
-	.core(CoreConfig.builder()
-		.requestHandlerThreadPoolSize(2)
-		.build())
-	.persistence(PersistenceInMemoryConfig.builder()
-		.initialModelFile(new File("{pathTo}\\FAAAST-Service\\misc\\examples\\model.aasx"))
-		.build())
-	.endpoint(HttpEndpointConfig.builder().build())
-	.messageBus(MessageBusInternalConfig.builder().build())
-	.fileStorage(FileStorageInMemoryConfig.builder().build())
-	.build());
+   .core(CoreConfig.builder()
+      .requestHandlerThreadPoolSize(2)
+      .build())
+   .persistence(PersistenceInMemoryConfig.builder()
+      .initialModelFile(new File("{pathTo}\\fa3st-service\\misc\\examples\\model.aasx"))
+      .build())
+   .endpoint(HttpEndpointConfig.builder().build())
+   .messageBus(MessageBusInternalConfig.builder().build())
+   .fileStorage(FileStorageInMemoryConfig.builder().build())
+   .build());
 service.start();
 ```

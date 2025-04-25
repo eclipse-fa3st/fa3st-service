@@ -32,7 +32,7 @@ import org.eclipse.digitaltwin.fa3st.common.dataformat.json.JsonApiDeserializer;
 import org.eclipse.digitaltwin.fa3st.common.dataformat.json.JsonApiSerializer;
 import org.eclipse.digitaltwin.fa3st.common.exception.UnsupportedModifierException;
 import org.eclipse.digitaltwin.fa3st.common.model.api.paging.Page;
-import org.eclipse.digitaltwin.fa3st.service.endpoint.http.model.HttpMethod;
+import org.eclipse.digitaltwin.fa3st.common.model.http.HttpMethod;
 import org.eclipse.digitaltwin.fa3st.service.endpoint.http.util.HttpConstants;
 
 

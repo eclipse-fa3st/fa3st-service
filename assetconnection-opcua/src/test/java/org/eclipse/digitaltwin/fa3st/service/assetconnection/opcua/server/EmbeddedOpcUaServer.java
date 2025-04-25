@@ -75,8 +75,8 @@ public class EmbeddedOpcUaServer {
     public static final String DEFAULT_APPLICATION_CERTIFICATE_KEY_STORE_TYPE = "PKCS12";
     private static final BuildInfo BUILD_INFO = BuildInfo.builder()
             .productUri("urn:org.eclipse.digitaltwin.fa3st:service:assetconnection:opcua:test")
-            .manufacturerName("Fraunhofer IOSB")
-            .productName("FA³ST OPC UA Asset Connection Test Server")
+            .manufacturerName("Eclipse FA3ST")
+            .productName("FA³ST Service OPC UA Asset Connection Test Server")
             .softwareVersion(OpcUaServer.SDK_VERSION)
             .buildDate(DateTime.now())
             .build();

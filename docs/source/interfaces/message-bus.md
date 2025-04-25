@@ -41,10 +41,11 @@ This implementation does not offer any configuration properties.
 :caption: Example configuration for Internal MessageBus.
 :lineno-start: 1
 {
-	"messageBus": {
-		"@class": "org.eclipse.digitaltwin.fa3st.service.messagebus.internal.MessageBusInternal"
-	},
-	//...
+    "messageBus":
+    {
+        "@class": "org.eclipse.digitaltwin.fa3st.service.messagebus.internal.MessageBusInternal"
+    },
+    //...
 }
 ```
 
@@ -61,11 +62,12 @@ The payload is a JSON serialization of the corresponding Java class with the fol
 :caption: JSON structure of serialized MessageBus events.
 :lineno-start: 1
 {
-	"@type": "[event type]",
-	"element": { 
-		// [default JSON serialization of Reference] 
-	},
-	// [event-specific properties]
+    "@type": "[event type]",
+    "element":
+    {
+        // [default JSON serialization of Reference]
+    },
+    // [event-specific properties]
 }
 ```
 
@@ -76,7 +78,8 @@ An example `ValueChangeEvent` might look like this:
 :lineno-start: 1
 {
     "@type": "ValueChangeEvent",
-    "element": {
+    "element":
+    {
         "keys": [
             {
                 "type": "Submodel",
@@ -86,13 +89,16 @@ An example `ValueChangeEvent` might look like this:
                 "type": "Property",
                 "value": "property"
             }
-    ] },
-    "oldValue": {
+        ]
+    },
+    "oldValue":
+    {
         "modelType": "Property",
         "dataType": "xs:int",
         "value": 0
     },
-    "newValue": {
+    "newValue":
+    {
         "modelType": "Property",
         "dataType": "xs:int",
         "value": 1
@@ -127,37 +133,42 @@ For deserialization of events the class `JsonEventDeserializer` in module `dataf
 ```{code-block} json
 :caption: Example configuration for MQTT MessageBus.
 :lineno-start: 1
+
 {
-	"messageBus": {
-		"@class": "org.eclipse.digitaltwin.fa3st.service.messagebus.mqtt.MessageBusMqtt",
-		"useInternalServer": true,
-		"port": 1883,
-		"sslPort": 8883,
-		"host": "localhost",
-		"websocketPort": 9001,
-		"sslWebsocketPort": 443,
-		"serverCertificate": {
-			"keyStoreType": "PKCS12",
-			"keyStorePath": "C:\fa3st\MyKeyStore.p12",
-			"keyStorePassword": "changeit",
-			"keyAlias": "server-key",
-			"keyPassword": "changeit"
-		},
-		"clientCertificate": {
-			"keyStoreType": "PKCS12",
-			"keyStorePath": "C:\fa3st\MyKeyStore.p12",
-			"keyStorePassword": "changeit",
-			"keyAlias": "client-key",
-			"keyPassword": "changeit"
-		},
-		"users": {
-			"user1": "password1"
-		},
-		"username": "messagebus-user",
-		"password": "messagebus-password",
-		"clientId": "CustomClientId",
-		"topicPrefix": "fa3st/events/"
-	},
-	//...
+    "messageBus":
+    {
+        "@class": "org.eclipse.digitaltwin.fa3st.service.messagebus.mqtt.MessageBusMqtt",
+        "useInternalServer": true,
+        "port": 1883,
+        "sslPort": 8883,
+        "host": "localhost",
+        "websocketPort": 9001,
+        "sslWebsocketPort": 443,
+        "serverCertificate":
+        {
+            "keyStoreType": "PKCS12",
+            "keyStorePath": "C:\fa3st\MyKeyStore.p12",
+            "keyStorePassword": "changeit",
+            "keyAlias": "server-key",
+            "keyPassword": "changeit"
+        },
+        "clientCertificate":
+        {
+            "keyStoreType": "PKCS12",
+            "keyStorePath": "C:\fa3st\MyKeyStore.p12",
+            "keyStorePassword": "changeit",
+            "keyAlias": "client-key",
+            "keyPassword": "changeit"
+        },
+        "users":
+        {
+            "user1": "password1"
+        },
+        "username": "messagebus-user",
+        "password": "messagebus-password",
+        "clientId": "CustomClientId",
+        "topicPrefix": "fa3st/events/"
+    },
+    //...
 }
 ```
