@@ -203,21 +203,19 @@ public abstract class AbstractMessageBusMqttTest<T> {
             .collect(Collectors.toList());
 
     private static final CertificateInformation SERVER_CERTIFICATE_INFORMATION = CertificateInformation.builder()
-            .applicationUri("urn:de:fraunhofer:iosb:ilt:faaast:service:messagebus:mqtt:test:server")
+            .applicationUri("urn:org:eclipse:digitaltwin:fa3st:service:messagebus:mqtt:test:server")
             .commonName("FA³ST Service MQTT MessageBus Unit Test - Server")
-            .countryCode("DE")
-            .localityName("Karlsruhe")
-            .organization("Fraunhofer IOSB")
-            .organizationUnit("ILT")
+            .countryCode("BE")
+            .localityName("Brussels")
+            .organization("Eclipse FA3ST")
             .build();
 
     private static final CertificateInformation CLIENT_CERTIFICATE_INFORMATION = CertificateInformation.builder()
-            .applicationUri("urn:de:fraunhofer:iosb:ilt:faaast:service:messagebus:mqtt:test:client")
+            .applicationUri("urn:org:eclipse:digitaltwin:fa3st:service:messagebus:mqtt:test:client")
             .commonName("FA³ST Service MQTT MessageBus Unit Test - Client")
-            .countryCode("DE")
-            .localityName("Karlsruhe")
-            .organization("Fraunhofer IOSB")
-            .organizationUnit("ILT")
+            .countryCode("BE")
+            .localityName("Brussels")
+            .organization("Eclipse FA3ST")
             .build();
 
     protected static String serverKeyStorePath;
@@ -234,7 +232,7 @@ public abstract class AbstractMessageBusMqttTest<T> {
 
     @BeforeClass
     public static void createCertificates() throws IOException, GeneralSecurityException {
-        File serverKeyStoreFile = File.createTempFile("faaast-", "-keystore-server.p12");
+        File serverKeyStoreFile = File.createTempFile("fa3st-", "-keystore-server.p12");
         serverKeyStoreFile.deleteOnExit();
         CertificateData serverCertificateData = KeyStoreHelper.generateSelfSigned(SERVER_CERTIFICATE_INFORMATION);
         KeyStoreHelper.save(serverCertificateData,
@@ -245,7 +243,7 @@ public abstract class AbstractMessageBusMqttTest<T> {
                 KEYSTORE_PASSWORD);
         serverKeyStorePath = serverKeyStoreFile.getAbsolutePath();
 
-        File clientKeyStoreFile = File.createTempFile("faaast-", "-keystore-client.p12");
+        File clientKeyStoreFile = File.createTempFile("fa3st-", "-keystore-client.p12");
         clientKeyStoreFile.deleteOnExit();
         CertificateData clientCertificateData = KeyStoreHelper.generateSelfSigned(CLIENT_CERTIFICATE_INFORMATION);
         KeyStore clientKeyStore = KeyStoreHelper.create(clientCertificateData,

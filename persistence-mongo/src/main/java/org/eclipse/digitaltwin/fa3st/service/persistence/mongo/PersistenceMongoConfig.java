@@ -22,7 +22,7 @@ import org.eclipse.digitaltwin.fa3st.service.persistence.PersistenceConfig;
  */
 public class PersistenceMongoConfig extends PersistenceConfig<PersistenceMongo> {
     private String connectionString;
-    private String database = "faaast";
+    private String database = "fa3st";
     private boolean override = false;
 
     public String getConnectionString() {

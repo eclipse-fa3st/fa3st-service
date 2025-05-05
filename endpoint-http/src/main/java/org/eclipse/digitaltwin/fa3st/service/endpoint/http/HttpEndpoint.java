@@ -64,12 +64,11 @@ public class HttpEndpoint extends AbstractEndpoint<HttpEndpointConfig> {
     public static final Version API_VERSION = Version.V3_0;
     private static final Logger LOGGER = LoggerFactory.getLogger(HttpEndpoint.class);
     private static final CertificateInformation SELFSIGNED_CERTIFICATE_INFORMATION = CertificateInformation.builder()
-            .applicationUri("urn:de:fraunhofer:iosb:ilt:faaast:service:endpoint:http")
+            .applicationUri("urn:org:eclipse:digitaltwin:fa3st:service:endpoint:http")
             .commonName("FA³ST Service HTTP Endpoint")
-            .countryCode("DE")
-            .localityName("Karlsruhe")
-            .organization("Fraunhofer IOSB")
-            .organizationUnit("ILT")
+            .countryCode("BE")
+            .localityName("Brussels")
+            .organization("Eclipse FA3ST")
             .build();
     private static final String ENDPOINT_PROTOCOL = "HTTP";
     private static final String ENDPOINT_PROTOCOL_VERSION = "1.1";

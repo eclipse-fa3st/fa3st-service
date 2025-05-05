@@ -428,7 +428,6 @@ public class OpcUaHelper {
                             .setApplicationName(LocalizedText.english(OpcUaConstants.CERTIFICATE_APPLICATION_NAME))
                             .setApplicationUri(CertificateUtil.getSanUri(applicationCertificate.getCertificate())
                                     .orElse(OpcUaConstants.CERTIFICATE_APPLICATION_URI))
-                            //.setProductUri("urn:de:fraunhofer:iosb:ilt:faast:asset-connection")
                             .setIdentityProvider(identityProvider)
                             .setRequestTimeout(uint(config.getRequestTimeout()))
                             .setAcknowledgeTimeout(uint(config.getAcknowledgeTimeout()))
