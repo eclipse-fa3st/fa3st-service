@@ -13,6 +13,8 @@ The features of FA³ST Service include
 - supports synchronization of the digital twins with existing assets using different protocols
 - can be used as CLI, docker container, or embedded library
 
+> [!TIP]
+> For more details on FA³ST Client see the [:blue_book: **full documenation**](https://fa3st-service.readthedocs.io).
 
 ## Implemented AAS Specifications
 
