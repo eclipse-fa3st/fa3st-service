@@ -184,12 +184,6 @@ public class App implements Runnable {
      * @param args CLI arguments
      */
     public static void main(String[] args) {
-        args = new String[] {
-                "--model",
-                "C:\\tmp\\fa3st\\aasx-with-files\\PenguinBotDPP_V3.1_fix.aasx",
-                "--config",
-                "C:\\tmp\\fa3st\\aasx-with-files\\config.json",
-        };
         Runtime.getRuntime().addShutdownHook(new Thread() {
             @Override
             public void run() {

@@ -92,10 +92,6 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>de.fraunhofer.iosb.ilt.fa3st.service</groupId>
-            <artifactId>fa3st-service-endpoint-opcua</artifactId>
-        </dependency>
-        <dependency>
             <groupId>net.javacrumbs.json-unit</groupId>
             <artifactId>json-unit-assertj</artifactId>
         </dependency>
