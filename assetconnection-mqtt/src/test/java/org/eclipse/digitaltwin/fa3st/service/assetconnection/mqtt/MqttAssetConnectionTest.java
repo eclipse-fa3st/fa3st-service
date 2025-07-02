@@ -22,7 +22,6 @@ import static org.mockito.Mockito.mock;
 import com.github.valfirst.slf4jtest.LoggingEvent;
 import com.github.valfirst.slf4jtest.TestLogger;
 import com.github.valfirst.slf4jtest.TestLoggerFactory;
-import io.moquette.BrokerConstants;
 import io.moquette.broker.Server;
 import io.moquette.broker.config.IConfig;
 import io.moquette.broker.config.MemoryConfig;
@@ -265,9 +264,10 @@ public class MqttAssetConnectionTest {
 
     private static IConfig getMqttServerConfig(int port) {
         MemoryConfig result = new MemoryConfig(new Properties());
-        result.setProperty(BrokerConstants.PORT_PROPERTY_NAME, Integer.toString(port));
-        result.setProperty(BrokerConstants.HOST_PROPERTY_NAME, LOCALHOST);
-        result.setProperty(BrokerConstants.ALLOW_ANONYMOUS_PROPERTY_NAME, Boolean.toString(true));
+        result.setProperty(IConfig.PERSISTENCE_ENABLED_PROPERTY_NAME, Boolean.toString(false));
+        result.setProperty(IConfig.PORT_PROPERTY_NAME, Integer.toString(port));
+        result.setProperty(IConfig.HOST_PROPERTY_NAME, LOCALHOST);
+        result.setProperty(IConfig.ALLOW_ANONYMOUS_PROPERTY_NAME, Boolean.toString(true));
         return result;
     }
 
