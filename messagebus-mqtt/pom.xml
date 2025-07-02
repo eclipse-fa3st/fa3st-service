@@ -20,6 +20,10 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+        <dependency>
             <groupId>de.fraunhofer.iosb.io.moquette</groupId>
             <artifactId>moquette-broker</artifactId>
         </dependency>
